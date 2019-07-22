@@ -34,7 +34,8 @@ class XiaohuaSpider(scrapy.Spider):
                     XiaohuaSpider.url_set.add(url)
                     yield self.make_requests_from_url(url) # 回调parse，将新url传入
                     # 回调函数默认为parse,也可以通过from scrapy.http import Request来指定回调函数
-                    # from scrapy.http import Request
-                    # Request(url,callback=self.parse)
+                    # 1、 from scrapy.http import Request
+                    #     Request(url,callback=self.parse)
+                    # 2、 yield scrapy.Request(url=url, callback=self.parse)  # 爬取到的页面如何处理？提交给parse方法处理
             else:
                 pass
